@@ -1,0 +1,11 @@
+import mysql.connector
+n=input("Enter Name")
+e=int(input("Enter English Marks"))
+m=int(input("Enter Maths Marks"))
+s=int(input("Enter Science Marks"))
+con=mysql.connector.connect(host="localhost",user="root",password="",database="collegedb")
+mycursor=con.cursor()
+# mycursor.execute("insert into students(name,english,maths,science) values('Hemant',57,77,88)")
+mycursor.execute("insert into students(name,english,maths,science) values('"+n+"',"+str(e)+","+str(m)+","+str(s)+")")
+con.commit()
+print("Successfully Inserted")
